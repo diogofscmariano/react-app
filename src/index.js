@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { getRoot } from './utils/registry';
-import App from './App.jsx';
+import { appRegistry } from 'app-mediator';
+import App from './components/App';
 
 const appRoot =
-	getRoot('react-app', '.root') || document.querySelector('.root');
+  appRegistry.findContainer('react-app', '.root') ||
+  document.querySelector('.root');
 
 render(<App />, appRoot);
